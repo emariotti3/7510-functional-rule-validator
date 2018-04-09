@@ -19,8 +19,7 @@
     (if (str/ends-with? (first exp-list) ")")
         [(new Expression (str/replace (nth exp-list 0) ")" "")) ]
         (if (str/starts-with? (first exp-list) "(")
-          [ (new Function (subs (first exp-list) 1) (concat (parse-expression-list (drop 1 exp-list)))
-                 )];build function receives operator + expression list
+          [ (new Function (subs (first exp-list) 1) (concat (parse-expression-list (drop 1 exp-list))) )];build function receives operator + expression list
           (concat [(new Expression (first exp-list))] (parse-expression-list (drop 1 exp-list)))
         )
     )
